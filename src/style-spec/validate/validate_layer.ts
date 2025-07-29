@@ -16,7 +16,7 @@ type Options = ValidationOptions & {
 };
 
 export default function validateLayer(options: Options): Array<ValidationError> {
-    let errors = [];
+    let errors: ValidationError[] = [];
 
     const layer = options.value;
     const key = options.key;
@@ -32,7 +32,7 @@ export default function validateLayer(options: Options): Array<ValidationError> 
     if (layer.id) {
         const layerId = unbundle(layer.id);
         for (let i = 0; i < options.arrayIndex; i++) {
-            const otherLayer = style.layers[i] as LayerSpecification & { id: { __line__: number } };
+            const otherLayer = style.layers[i] as LayerSpecification & {id: {__line__: number}};
             if (unbundle(otherLayer.id) === layerId) {
                 errors.push(new ValidationError(key, layer.id, `duplicate layer id "${layer.id}", previously used at line ${otherLayer.id.__line__}`));
             }
@@ -146,6 +146,5 @@ export default function validateLayer(options: Options): Array<ValidationError> 
         }
     }));
 
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return errors;
 }

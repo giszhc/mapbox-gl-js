@@ -44,7 +44,7 @@ import type {StringifiedImageId} from '../style-spec/expression/types/image_id';
 import type {StringifiedImageVariant} from '../style-spec/expression/types/image_variant';
 import type {StyleModelMap} from '../style/style_mode';
 
-type RasterizationStatus = { iconsPending: boolean, patternsPending: boolean};
+type RasterizationStatus = {iconsPending: boolean, patternsPending: boolean};
 class WorkerTile {
     tileID: OverscaledTileID;
     uid: number;
@@ -363,7 +363,7 @@ class WorkerTile {
             if (!this.extraShadowCaster) {
                 const stacks = mapObject(options.glyphDependencies, (glyphs) => Object.keys(glyphs).map(Number));
                 if (Object.keys(stacks).length) {
-                    actor.send('getGlyphs', {uid: this.uid, stacks, scope: this.scope}, (err, result: GlyphMap) => {
+                    actor.send('getGlyphs', {uid: this.uid, stacks}, (err, result: GlyphMap) => {
                         if (!error) {
                             error = err;
                             glyphMap = result;

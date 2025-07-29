@@ -1,3 +1,24 @@
+## 3.14.0-beta.2
+
+### Bug fixes 🐞
+- Fix rendering of multiple `raster` layers from a single `raster-array` source.
+- Fix restoration of maps with background patterns, heatmap, image, video, or raster sources after WebGL context loss.
+
+## 3.14.0-beta.1
+
+## Breaking changes ⚠️
+- Imported styles will use the `glyphs` URL template from the root style instead of their own.
+
+### Features and improvements ✨
+- Add a `split` expression to divide a string into an array of substrings based on a specified delimiter.
+- Improve memory usage for GeoJSON sources.
+
+### Bug fixes 🐞
+- Fix an issue with querying rendered features during the globe-to-Mercator transition.
+- Fix resources cleanup when removing a map with a terrain or/and vector icons.
+- Fix an issue where a single primary image was not rendered correctly with `icon-image-cross-fade`.
+- Fix an edge case involving the mixing of vertical and horizontal writing modes.
+
 ## 3.13.0
 
 ### Breaking changes ⚠️
